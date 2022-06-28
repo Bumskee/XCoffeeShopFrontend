@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useNavigate, BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import CreatePost from "./pages/CreatePost";
 import Login from "./pages/Login";
@@ -8,17 +8,19 @@ import { signOut } from "firebase/auth";
 import { Auth } from "./firebase-config";
 
 const App = () => {
+  const Navigate = useNavigate();
   const SignUserOut = () => {
     localStorage.clear();
+    localStorage.setItem("isAuth", false)
     signOut(Auth);
-    window.location.href="login";
+    Navigate("/login")
   }
   return (
     <Router>
         <nav>
             <Link to="/">Home</Link>
             <Link to="/createpost">Add Item</Link>
-            {!localStorage.getItem("isAuth") ? <Link to="/login">Login</Link> : <button class = 'astext' onClick={SignUserOut}>Logout</button>}
+            {localStorage.getItem("isAuth") ? <button class = 'astext' onClick={SignUserOut}>Logout</button> : <Link to="/login">Login</Link>}
         </nav>
         <Routes>
             <Route path="/" element={<Home />} />
