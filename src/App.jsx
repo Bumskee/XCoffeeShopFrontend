@@ -7,15 +7,15 @@ import "./App.css";
 import { signOut } from "firebase/auth";
 import { Auth } from "./firebase-config";
 
-const App = () => {
+const Root = () => {
   const Navigate = useNavigate();
   const SignUserOut = () => {
-    localStorage.setItem("isAuth", false)
+    localStorage.clear();
     signOut(Auth);
     Navigate("/login")
   }
   return (
-    <Router>
+    <div>
         <nav>
             <Link to="/">Home</Link>
             <Link to="/createpost">Add Item</Link>
@@ -26,8 +26,16 @@ const App = () => {
             <Route path="/createpost" element={<CreatePost />} />
             <Route path="/login" element={<Login/>} />
         </Routes>
-    </Router>
+    </div>
   );
 }
+
+const App = () => {
+  return (
+    <Router>
+        <Root />
+    </Router>
+  );
+};
 
 export default App;
