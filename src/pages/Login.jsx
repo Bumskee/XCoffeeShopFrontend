@@ -5,12 +5,11 @@ import { useNavigate } from "react-router-dom";
 import './Login.css';
 import GoogleLogo from './assets/images/GoogleLogo.png'
 
-const Login = ({setIsAuth}) => {
+const Login = () => {
   const Navigate = useNavigate();
   const SignInWithGoogle = () => {
     signInWithPopup(Auth,Provider).then(() => {
         localStorage.setItem("isAuth",true);
-        setIsAuth(true);
         Navigate("/");
     })
   }
