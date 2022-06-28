@@ -17,7 +17,7 @@ const App = () => {
     <Router>
         <nav>
             <Link to="/">Home</Link>
-            <Link to="/createpost">Post</Link>
+            <Link to="/createpost">Add Item</Link>
             {!localStorage.getItem("isAuth") ? <Link to="/login">Login</Link> : <button class = 'astext' onClick={SignUserOut}>Logout</button>}
         </nav>
         <Routes>

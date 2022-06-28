@@ -11,7 +11,7 @@ export class CreatePost extends Component{
 
   handleSubmit(event){
     event.preventDefault();
-    fetch('https://characternames-backend.herokuapp.com/'+'heroes',{
+    fetch('https://mrx-coffeeshop-backend.herokuapp.com/'+'menues',{
         method:'POST',
         mode:'cors',
         headers:{
@@ -19,9 +19,9 @@ export class CreatePost extends Component{
             'Content-Type':'application/json'
         },
         body:JSON.stringify({
-            heros_id:null,
+            menues_id:null,
             name:event.target.name.value,
-            alias:event.target.alias.value
+            price:event.target.price.value
         })
     })
     .then(res=>res.json())
@@ -40,16 +40,16 @@ export class CreatePost extends Component{
           <Form.Group class="beside" controlId="name">
             <Form.Label>name</Form.Label>
             <Form.Control type="text" name="name" required 
-            placeholder="character name"/>
+            placeholder="Item Name"/>
           </Form.Group>
-          <Form.Group class="beside" controlId="alias">
-            <Form.Label>alias</Form.Label>
-            <Form.Control type="text" name="alias" required 
-            placeholder="character alias"/>
+          <Form.Group class="beside" controlId="price">
+            <Form.Label>price</Form.Label>
+            <Form.Control type="text" name="price" required 
+            placeholder="Item Price"/>
           </Form.Group>
           <Form.Group class="beside">
             <Button class="submitButton" variant="primary" type="submit">
-              Add Character
+              Add Item
             </Button>
           </Form.Group>
         </Form>

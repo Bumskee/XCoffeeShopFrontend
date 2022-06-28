@@ -6,14 +6,14 @@ export class Home extends Component {
 
   constructor(props){
     super(props);
-    this.state={heros:[]}
+    this.state={menues:[]}
   }
 
   refreshList(){
-    fetch('https://characternames-backend.herokuapp.com/'+'heroes')
+    fetch('https://mrx-coffeeshop-backend.herokuapp.com/'+'menues')
     .then(response=>response.json())
     .then(data=>{
-      this.setState({heros:data});
+      this.setState({menues:data});
     });
   }
 
@@ -25,39 +25,34 @@ export class Home extends Component {
     this.refreshList();
   }
 
-  deleteHero(heros_id){
+  orderItem(){
     if(window.confirm("are you sure?")){
-      fetch('https://characternames-backend.herokuapp.com/'+'heroes/'+heros_id,{
-        mode:'cors',
-        method:'DELETE',
-        header:{'Accept':'application/json'},
-        'Content-Type':'application/json'
-      })
+      console.log("order successful")
     }
   }
 
   render(){
-    const {heros}=this.state;
+    const {menues}=this.state;
     return (
       <div>
         <table class="content-table">
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Alias</th>
+                <th>Price</th>
                 <th text-align="center">Options</th>
               </tr>
             </thead>
             <tbody>
-                {heros.map(hero=>
-                  <tr key={hero.heros_id}>
-                    <td>{hero.name}</td>
-                    <td>{hero.alias}</td>
+                {menues.map(menu=>
+                  <tr key={menu.menues_id}>
+                    <td>{menu.name}</td>
+                    <td>{menu.price}</td>
                     <td>
                       <ButtonToolbar>
                         <Button className="mr-2" variant="danger"
-                        onClick={()=>this.deleteHero(hero.heros_id)}>
-                          Delete
+                        onClick={()=>this.orderItem()}>
+                          Order
                         </Button>
                       </ButtonToolbar>
                     </td>
