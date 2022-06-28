@@ -10,7 +10,6 @@ import { Auth } from "./firebase-config";
 const App = () => {
   const Navigate = useNavigate();
   const SignUserOut = () => {
-    localStorage.clear();
     localStorage.setItem("isAuth", false)
     signOut(Auth);
     Navigate("/login")
