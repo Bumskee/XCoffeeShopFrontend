@@ -6,12 +6,33 @@ import './Login.css';
 import GoogleLogo from './assets/images/GoogleLogo.png'
 
 const Login = () => {
+  const state = {
+    credentials: {username: '', password: ''},
+}
   const Navigate = useNavigate();
   const SignInWithGoogle = () => {
     signInWithPopup(Auth,Provider).then(() => {
         localStorage.setItem("isAuth",true);
         Navigate("/");
     })
+  }
+  const regularLogin = () => {
+    fetch('https://surevey-backend.herokuapp.com/auth/', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(state.credentials)
+        })
+        .then( data => data.json())
+        .then(
+            data => { 
+               if (data.token) {
+                const cred = state.credentials;
+                localStorage.setItem("isAuth", true)
+                Navigate("/account");
+               } 
+            }
+        )
+        .catch( error => console.error(error))
   }
   return (
     <div className="Login">
