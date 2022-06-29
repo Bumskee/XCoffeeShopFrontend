@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.fc3265b2.css",
-    "main.js": "/static/js/main.176e44fe.js",
+    "main.js": "/static/js/main.f52e8fd6.js",
     "static/media/Roboto-Thin.ttf": "/static/media/Roboto-Thin.1711b41f3ae4cb322eea.ttf",
     "static/media/Roboto-Light.ttf": "/static/media/Roboto-Light.8be2d1487420548b3b8d.ttf",
     "static/media/GoogleLogo.png": "/static/media/GoogleLogo.0590aaf0fe36e23dcc8c.png",
     "index.html": "/index.html",
     "main.fc3265b2.css.map": "/static/css/main.fc3265b2.css.map",
-    "main.176e44fe.js.map": "/static/js/main.176e44fe.js.map"
+    "main.f52e8fd6.js.map": "/static/js/main.f52e8fd6.js.map"
   },
   "entrypoints": [
     "static/css/main.fc3265b2.css",
-    "static/js/main.176e44fe.js"
+    "static/js/main.f52e8fd6.js"
   ]
 }
