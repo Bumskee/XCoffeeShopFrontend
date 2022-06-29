@@ -3,6 +3,7 @@ import { useNavigate, BrowserRouter as Router, Routes, Route, Link } from "react
 import Home from "./pages/Home";
 import CreatePost from "./pages/CreatePost";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import "./App.css";
 import { signOut } from "firebase/auth";
 import { Auth } from "./firebase-config";
@@ -25,6 +26,7 @@ const Root = () => {
             <Route path="/" element={<Home />} />
             <Route path="/createpost" element={<CreatePost />} />
             <Route path="/login" element={<Login/>} />
+            <Route path="/register" element={<Register/>} />
         </Routes>
     </div>
   );
