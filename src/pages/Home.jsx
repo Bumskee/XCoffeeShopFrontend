@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {ButtonToolbar, Button} from 'react-bootstrap'
+import Capuccino from './assets/images/capuccino.jpg'
 import './Home.css';
 
 export class Home extends Component {
@@ -10,7 +11,7 @@ export class Home extends Component {
   }
 
   refreshList(){
-    fetch('https://mrx-coffeeshop-backend.herokuapp.com/'+'menues')
+    fetch('https://mrx-coffeeshop-backend.herokuapp.com/menues')
     .then(response=>response.json())
     .then(data=>{
       this.setState({menues:data});
@@ -35,6 +36,10 @@ export class Home extends Component {
     const {menues}=this.state;
     return (
       <div>
+        <h1 className="offer_title center">Today's Offer</h1>
+        <img className="offer_image center" src={Capuccino} alt="capuccino" />
+        <h3 className="offer_price center">1 bucks</h3>
+        <h2 className="menu_title center">Menu</h2>
         <table class="content-table">
             <thead>
               <tr>

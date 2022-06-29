@@ -30,7 +30,7 @@
     font-size: 18px;
     background: linear-gradient(120deg, #141414, #333333);
     height: 100vh;
-    overflow: hidden;
+    overflow: scroll;
   }
 
   .LoginHeader{
